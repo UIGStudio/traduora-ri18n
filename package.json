@@ -1,0 +1,16 @@
+{
+    "name": "@uig/traduora-ri18n",
+    "version": "0.1.0",
+    "main": "app.js",
+    "private": false,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:UIGStudio/traduora-ri18n.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "description": ""
+}
