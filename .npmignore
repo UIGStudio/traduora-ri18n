@@ -16,4 +16,5 @@ yarn-error.log
 .npmrc
 .idea/*
 .env
-
+__tests__
+src
