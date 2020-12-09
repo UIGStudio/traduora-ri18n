@@ -1,35 +1,44 @@
-import DataStorage from "./interfaces/DataStorage";
-import Manager from "./services/Manager";
+import I18n from 'i18n-js';
 
-export type ConfigInternalType = {
-    url: string;
-    projectId: string;
-    locale: string;
-    clientId: string;
-    clientSecret: string;
-    cacheTtl: number;
-}
-type ConfigType = Omit<ConfigInternalType, 'cacheTtl'> & {
-    cacheProvider?: DataStorage;
-    cacheTtl?: number;
-}
+import defaultPluralizers from './pluralizers';
+import {getInitLocale, loadLocale} from './utils';
 
-class Traduora {
-    private manager: Manager | undefined;
-    init = async (config: ConfigType) => {
-        this.manager = new Manager(config);
-        return this.manager.init();
-    }
 
-    setLanguage = (locale: string) => {
-        if (!this.manager) {
-            throw Error('traduora is not initialized');
-        }
-        return this.manager.changeLocale(locale);
-    }
+const setRI18nLocale = (locale: string) => {
+    I18n.locale = locale;
+    localStorage.setItem('lang', locale);
+};
 
+export type  RI18nConfig = {
+    localesUrl: string;
+    defaultLocale: string;
+    availableLocales: string[];
+    defaultTranslations?: { [key: string]: object }
+    pluralizers?: { [key: string]: object }
 }
 
-const traduora = new Traduora();
+const initRI18n = ({
+   localesUrl,
+   defaultLocale,
+   availableLocales,
+   defaultTranslations = {},
+   pluralizers = {}
+}: RI18nConfig) => {
+    I18n.locale = getInitLocale(availableLocales, defaultLocale);
+    I18n.defaultLocale = defaultLocale;
+    I18n.pluralization = {...defaultPluralizers, ...pluralizers};
+    I18n.fallbacks = true;
+    I18n.translations = defaultTranslations;
+    availableLocales.forEach(l => loadLocale(localesUrl, l));
+}
 
-export default traduora;
+
+const RI18n = I18n;
+
+export {
+    setRI18nLocale,
+    initRI18n,
+}
+
+
+export default RI18n;

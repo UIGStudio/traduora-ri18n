@@ -1,22 +1,18 @@
-export default {
-    en: (count: number) => {
-        let key;
-        if (count === 1) {
-            key = 'one';
-        } else {
-            key = 'many';
-        }
-        return [key];
-    },
-    pl: (count: number) => {
-        let key;
-        if (count === 1) {
-            key = 'one'
-        } else if (count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 10 || count % 100 >= 20)) {
-            key = 'few'
-        } else {
-            key = 'many'
-        }
-        return [key];
-    },
-}
+import I18n from "i18n-js";
+
+export const loadLocale = (localesUrl: string, locale: string) => {
+    fetch(`${localesUrl}${locale}.json`)
+        .then((res) => res.json())
+        .then((json) => {
+            I18n.translations = {...I18n.translate, [locale]: json};
+        });
+};
+export const getInitLocale = (availableLocales: string[], defaultValue = 'en') => {
+    return (
+        [
+            localStorage.getItem('lang'),
+            navigator.language,
+            ...navigator.languages,
+        ].find((l) => l && availableLocales.includes(l)) || defaultValue
+    );
+};
