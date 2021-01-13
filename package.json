@@ -1,6 +1,6 @@
 {
     "name": "@uig/traduora-ri18n",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "i18n-js wrapper with traduora service",
     "author": {
         "name": "Łukasz Micał",

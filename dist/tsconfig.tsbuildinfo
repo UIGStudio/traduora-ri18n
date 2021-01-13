@@ -202,8 +202,8 @@
         "affectsGlobalScope": true
       },
       "../node_modules/@types/i18n-js/index.d.ts": {
-        "version": "da701ed6feb7eac0cd79ce2a818de0939be720af5eafe96157bbd67fa319b334",
-        "signature": "da701ed6feb7eac0cd79ce2a818de0939be720af5eafe96157bbd67fa319b334",
+        "version": "659f24dc56dc8ec398533971b655af42bac45059175808558695c39eecb8c89d",
+        "signature": "659f24dc56dc8ec398533971b655af42bac45059175808558695c39eecb8c89d",
         "affectsGlobalScope": false
       },
       "../src/pluralizers.ts": {
@@ -212,13 +212,13 @@
         "affectsGlobalScope": false
       },
       "../src/utils.ts": {
-        "version": "4f3f060cb2f29b75776ff832e82211c2390323e28938853b55a12aba60c41838",
-        "signature": "08c713abc3d87418cd8daf555d7ed0cc0def7529ccecf488b33adb9c7479070b",
+        "version": "90de4f7f4fe5bb26ce3979455f323aaed89ce499b27a48adabe0036dfd281b97",
+        "signature": "186c36839c86decfa3ebbd3b291c733a429838753db95a8e4f15521c84c4bc3a",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
-        "version": "decc2eb922d9da725913ffc5aaa5706f5268b555b45a104372fef58744bc113d",
-        "signature": "741ddae346f7503911180ffd534fc7b20a35239cdc2f55599030e532f29ed58e",
+        "version": "753dc21cabd5363e92c8f9e782544723f90748945e9e48657a50d11e225848b5",
+        "signature": "3109ae1f93f5b7214436ee86e88ab434e28a60e80a7c11808c24d22ec35ca5ef",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/globals.d.ts": {
@@ -377,8 +377,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/tls.d.ts": {
-        "version": "c52eb62e3388a01b966c57bd14ca0ee9d5f6e656d6a18f6ce6b7cdece63734a3",
-        "signature": "c52eb62e3388a01b966c57bd14ca0ee9d5f6e656d6a18f6ce6b7cdece63734a3",
+        "version": "a0545ca910ec6b318b8e1d63813c980c3be44824cf217b6477a56fbe9c7927d5",
+        "signature": "a0545ca910ec6b318b8e1d63813c980c3be44824cf217b6477a56fbe9c7927d5",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/trace_events.d.ts": {
@@ -933,6 +933,9 @@
         "../node_modules/pretty-format/build/types.d.ts"
       ],
       "../src/index.ts": [
+        "../node_modules/@types/i18n-js/index.d.ts"
+      ],
+      "../src/utils.ts": [
         "../node_modules/@types/i18n-js/index.d.ts"
       ]
     },

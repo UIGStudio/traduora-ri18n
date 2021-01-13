@@ -3,9 +3,10 @@ import I18n from 'i18n-js';
 import defaultPluralizers from './pluralizers';
 import {getInitLocale, loadLocale} from './utils';
 
+const RI18n = I18n;
 
 const setRI18nLocale = (locale: string) => {
-    I18n.locale = locale;
+    RI18n.locale = locale;
     localStorage.setItem('lang', locale);
 };
 
@@ -24,21 +25,17 @@ const initRI18n = ({
    defaultTranslations = {},
    pluralizers = {}
 }: RI18nConfig) => {
-    I18n.locale = getInitLocale(availableLocales, defaultLocale);
-    I18n.defaultLocale = defaultLocale;
-    I18n.pluralization = {...defaultPluralizers, ...pluralizers};
-    I18n.fallbacks = true;
-    I18n.translations = defaultTranslations;
-    availableLocales.forEach(l => loadLocale(localesUrl, l));
+    RI18n.locale = getInitLocale(availableLocales, defaultLocale);
+    RI18n.defaultLocale = defaultLocale;
+    RI18n.pluralization = {...defaultPluralizers, ...pluralizers};
+    RI18n.fallbacks = true;
+    RI18n.translations = defaultTranslations;
+    availableLocales.forEach(l => loadLocale(RI18n, localesUrl, l));
 }
-
-
-const RI18n = I18n;
 
 export {
     setRI18nLocale,
     initRI18n,
 }
-
 
 export default RI18n;
